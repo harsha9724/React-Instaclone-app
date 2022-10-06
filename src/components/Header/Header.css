@@ -1,0 +1,18 @@
+.header{
+    box-sizing: border-box;
+    padding-left: 35px;
+    padding-right: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo .icon-name{
+    color: #006238;
+    font: normal normal normal 64px/71px Palatino;
+}
