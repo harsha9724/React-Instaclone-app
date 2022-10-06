@@ -9,8 +9,9 @@ const Post=()=>{
  useEffect( ()=>{
     async function fetchdata(){
         await axios.get("https://instaclone-node-api.herokuapp.com/api/v1/post").then(response=>{
-            setdata((response.data.data).reverse())
-            console.log(response.data.data);
+            // console.log(response);   
+        setdata((response.data.data).reverse())
+           
         })
     }
    fetchdata()

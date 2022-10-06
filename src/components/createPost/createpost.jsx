@@ -4,7 +4,8 @@ import { useState } from "react";
 import {useNavigate} from "react-router-dom"
 import Header from "../Header/Header";
 const Createposts =()=>{
-    const history=useNavigate()
+    const history=useNavigate();
+    const [fileError,setfileError]=useState(false)
     const [postDetailes,setPostDetailes]=useState({
         name:"",
         location:"",
@@ -31,6 +32,13 @@ const config={
   setPostDetailes({...postDetailes,[name]:value})
  }
  const handlefile=(e)=>{
+    if((e.target.files[0].size)>75*1024){
+        setfileError(true);
+        setPostDetailes({...postDetailes,postImage:""})
+    }
+    else{
+        setfileError(false)
+    }
     setPostDetailes({...postDetailes, postImage:e.target.files[0]})
  }
 
@@ -42,9 +50,10 @@ return (
         <h2>Create your Post</h2>
          <form method="POST" onSubmit={handleSubmit}>
             <div className="first-line"  >
-                <input type="file" onChange={handlefile} />
-            </div>
-            <div >*Please upload image with less than 50kb</div>
+                <input type="file" formNoValidate onChange={handlefile} />
+            </div>{
+                (fileError)? <div style={{color:"red"}}>*Please upload image with less than 50kb</div> : null
+            }         
             <div className="middle-line">
                 <input type="text" name="name" value={postDetailes.name} placeholder="Author" onChange={handleChange}/>
                 <input type="text" name="location" value={postDetailes.location} placeholder="Location" onChange={handleChange}/>
