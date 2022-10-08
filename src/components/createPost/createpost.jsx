@@ -50,9 +50,9 @@ return (
         <h2>Create your Post</h2>
          <form method="POST" onSubmit={handleSubmit}>
             <div className="first-line"  >
-                <input type="file" formNoValidate onChange={handlefile} />
+                <input type="file" value={postDetailes.postImage} formNoValidate required accept="image/png,image/jpeg,image/jpg" onChange={handlefile} />
             </div>{
-                (fileError)? <div style={{color:"red"}}>*Please upload image with less than 50kb</div> : null
+                (fileError)? <div style={{color:"red"}}>*Please upload image with less than 75kb</div> : null
             }         
             <div className="middle-line">
                 <input type="text" name="name" value={postDetailes.name} placeholder="Author" onChange={handleChange}/>
