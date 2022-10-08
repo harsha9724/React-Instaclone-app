@@ -55,11 +55,11 @@ return (
                 (fileError)? <div style={{color:"red"}}>*Please upload image with less than 75kb</div> : null
             }         
             <div className="middle-line">
-                <input type="text" name="name" value={postDetailes.name} placeholder="Author" onChange={handleChange}/>
-                <input type="text" name="location" value={postDetailes.location} placeholder="Location" onChange={handleChange}/>
+                <input type="text" name="name" value={postDetailes.name} placeholder="Author" onChange={handleChange} required/>
+                <input type="text" name="location" value={postDetailes.location} placeholder="Location" onChange={handleChange} required/>
             </div>
             <div className="last-line">
-                <input type="text" name="description" value={postDetailes.description} placeholder="Description" onChange={handleChange} />
+                <input type="text" name="description" value={postDetailes.description} placeholder="Description" onChange={handleChange} required />
             </div>
             <div className="btn-post">
             
